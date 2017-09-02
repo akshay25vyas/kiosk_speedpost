@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			<div id ="qrcode" style="width:1px; height:1px; margin:1px;"></div>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<title>Cross-Browser QRCode generator for Javascript</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="qrcode.js"></script>
+	</head>
+	<body>
+		<table style="width:100%">
+			<tr>
+				<td>Enter source</td> 
+			</tr>
+
+
+			<tr>	
+				<td><input id="text" type="text" value="source" style="width:100%" /></td>
+				<td><input id="text1" type="text" value="dest" style="width:100%" /></td>
+			</tr>
+
+
+			<tr>
+				<td>
+
+			<div id ="qrcode1"></div>
+					<script type="text/javascript">
+var qrcode1 = new QRCode(document.getElementById("qrcode1"), {
+	width : 500,
+	height : 500
+});
+
+function makeCode1 ()
+{               
+	var elText = document.getElementById("text");
+
+	if (!elText.value) {
+		alert("Input a text");
+		elText.focus();
+		return;
+	}
+
+	qrcode.makeCode1(elText.value);
+}
+
+makeCode1();
+
+$("#text").
+on("blur", function () {
+	makeCode1();
+}).
+on("keydown", function (e) {
+	if (e.keyCode == 13) {
+		makeCode1();
+	}
+});
+					</script>
+
+				</td>
+			</tr>
+	</body>
+</html> 
+
+
